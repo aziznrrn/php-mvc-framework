@@ -1,25 +1,9 @@
 <h1 class="mb-4">Register an Account</h1>
 
-<form action="/register" method="post">
-    <div class="form-group mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" name="name"
-               id="name" placeholder="Enter name">
-    </div>
-    <div class="form-group mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" name="email"
-               id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password"
-               id="password" placeholder="Enter password">
-    </div>
-    <div class="form-group mb-3">
-        <label for="password_confirmation" class="form-label">Password Confirmation</label>
-        <input type="password" class="form-control" name="password_confirmation"
-               id="password_confirmation" placeholder="Enter password confirmation">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<?php $form = \app\core\Form::begin('/register', 'POST', ['class' => 'form'], $model) ?>
+<?php $form->field('text', 'name', 'Name', '', 'Your name', ['class' => 'form-control']) ?>
+<?php $form->field('email', 'email', 'Email', '', 'Your email', ['class' => 'form-control']) ?>
+<?php $form->field('password', 'password', 'Password', '', 'Your password', ['class' => 'form-control']) ?>
+<?php $form->field('password', 'password_confirmation', 'Confirm Password', '', 'Confirm your password', ['class' => 'form-control']) ?>
+<?php \app\core\Form::button('submit', '', 'Register', ['class' => 'btn btn-primary']) ?>
+<?php $form->end() ?>
